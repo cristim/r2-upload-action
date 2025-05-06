@@ -107,6 +107,11 @@ const run = async (config: R2Config) => {
             console.log(`Using destination directory: ${fileKey}`);
         }
 
+        if (fileKey.startsWith('/')) {
+            console.log(`Removing the initial / from the file path: ${fileKey}`);
+            fileKey = fileKey.substring(1);
+        }
+
         if (fileName.includes('.gitkeep'))
             continue;
 
